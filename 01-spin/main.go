@@ -143,8 +143,14 @@ func (g *Game) Update() error {
 	return nil
 }
 
+var (
+	colorBG = color.RGBA{0x56, 0x55, 0x54, 0xff}
+	colorFG = color.RGBA{0xf6, 0xf1, 0x93, 0xee}
+)
+
 func (g *Game) Draw(screen *ebiten.Image) {
-	drawShape(screen, g.shape, 1, color.White)
+	screen.Fill(colorBG)
+	drawShape(screen, g.shape, 1, colorFG)
 
 	// msg := fmt.Sprintf("TPS: %0.2f\nRot: %.3f", ebiten.ActualTPS(), g.rot)
 	msg := "Spin the dial with left and right arrows"
